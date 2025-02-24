@@ -1,0 +1,24 @@
+# Ignore build artifacts
+build/
+CMakeFiles/
+CMakeModules/
+data/
+
+.vscode
+/build
+/CMakeFiles
+/CMakeModules
+/data
+CMakeCache.txt
+
+
+# Ignore IDE-specific files
+*.user
+*.vcxproj
+*.sln
+
+# Ignore generated files
+*.o
+*.obj
+*.pdb
+*.lib

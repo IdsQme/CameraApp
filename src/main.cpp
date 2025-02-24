@@ -1,6 +1,4 @@
 #include "assert.h"
-#include "Camera.h"
-#include "DepthEstimator.h"
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <cstdlib>  

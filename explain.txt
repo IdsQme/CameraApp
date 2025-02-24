@@ -1,0 +1,60 @@
+1. vcpkg new --application 
+creates vcpkg.json
+
+2. vcpkg add port "PCKG"
+adds PCKG dependency.
+
+3.Create CMakeLists.txt that contains:
+cmake_minimum_required(VERSION 3.10)
+
+project(HelloWorld)
+
+find_package(fmt CONFIG REQUIRED)
+
+add_executable(HelloWorld helloworld.cpp)
+
+target_link_libraries(HelloWorld PRIVATE fmt::fmt)
+
+(more about CMakeLists.txt in the file itself)
+
+4. Create: CMakePresets.json containing:
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      }
+    }
+  ]
+}
+and MakeUserPresets.json containing:
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "default",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "<path to vcpkg>"
+      }
+    }
+  ]
+}
+The CMakePresets.json file contains a single preset named "vcpkg", which sets the CMAKE_TOOLCHAIN_FILE variable.
+
+CMakeUserPresets.json sets the VCPKG_ROOT environment variable.
+
+5. Configure the build using CMake: 
+	cmake --preset=default
+
+6. Build the project
+	cmake --build build
+
+7.Run application using its .exe (example)
+
+	.\build\HelloWorld.exe
+

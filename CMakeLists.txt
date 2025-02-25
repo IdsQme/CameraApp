@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
+
 # Set project name
 project(CameraDepthPerception)
 
@@ -21,3 +22,4 @@ target_include_directories(CameraDepthPerception PRIVATE ${OpenCV_INCLUDE_DIRS})
 
 # Include your project's headers (include directory)
 target_include_directories(CameraDepthPerception PRIVATE ${CMAKE_SOURCE_DIR}/include)
+

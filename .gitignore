@@ -3,12 +3,9 @@ build/
 CMakeFiles/
 CMakeModules/
 data/
+darknet/
+YOLO/
 
-/build
-/CMakeFiles
-/CMakeModules
-/data
-CMakeCache.txt
 
 
 # Ignore IDE-specific files
